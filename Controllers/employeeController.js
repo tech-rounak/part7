@@ -11,7 +11,7 @@ router.post('/',async(req,res)=>{
      emp.ename = req.body.ename
      emp.desig = req.body.desig
      emp.basic = req.body.basic
-     const empDB = await emp.save((err,data)=>{
+     emp.save((err,data)=>{
           if(!err)
                res.render("NewEmp",{msg:"Data SAVED Sucessfully"})
      })
