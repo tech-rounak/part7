@@ -5,13 +5,13 @@ const Employee = mongoose.model('Employee')
 router.get('/',(req,res)=>{
      res.render("NewEmp",{msg:''});
 })
-router.post('/',(req,res)=>{
+router.post('/',async(req,res)=>{
      const emp = new Employee()
      emp.empid = req.body.empid
      emp.ename = req.body.ename
      emp.desig = req.body.desig
      emp.basic = req.body.basic
-     emp.save((err,data)=>{
+     const empDB = await emp.save((err,data)=>{
           if(!err)
                res.render("NewEmp",{msg:"Data SAVED Sucessfully"})
      })
@@ -19,7 +19,7 @@ router.post('/',(req,res)=>{
 })
 
  router.get("/show",async(req,res)=>{
-          Employee.find((err,data)=>{
+          const emp = await Employee.find((err,data)=>{
                if(!err)
                res.render('showEmpDetails',{data:data});
           })
