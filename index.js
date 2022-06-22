@@ -11,7 +11,7 @@ app.get('/',(req,res)=>{
 })
 app.set('view engine','ejs')
 const empController = require('./Controllers/employeeController')
-app.use('/employee',empController)
+app.use('/employee',empController) 
 
 app.listen(port,()=>{
      console.log("Server is running at PORT 3000")

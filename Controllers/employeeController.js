@@ -18,8 +18,8 @@ router.post('/',(req,res)=>{
     
 })
 
- router.get("/show",(req,res)=>{
-          Employee.find((err,data)=>{
+ router.get("/show",async(req,res)=>{
+          const emp = await Employee.find((err,data)=>{
                if(!err)
                res.render('showEmpDetails',{data:data});
           })
