@@ -5,7 +5,7 @@ const Employee = mongoose.model('Employee')
 router.get('/',(req,res)=>{
      res.render("NewEmp",{msg:''});
 })
-router.post('/',async(req,res)=>{
+router.post('/',(req,res)=>{
      const emp = new Employee()
      emp.empid = req.body.empid
      emp.ename = req.body.ename
